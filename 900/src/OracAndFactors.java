@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PuzzlePieces 
+public class OracAndFactors 
 {
 	public static void main(String[] args)
 	{
@@ -15,12 +15,22 @@ public class PuzzlePieces
 		
 		for (int i = 0; i < tests.length; i++)
 		{
-			if (tests[i][0] > 2 && tests[i][1] > 1)
-				System.out.println("NO");
-			else if (tests[i][1] > 2 && tests[i][0] > 1)
-				System.out.println("NO");
+			int n = tests[i][0];
+			int k = tests[i][1];
+			
+			if (n%2 == 0)
+				System.out.println(n + 2*k + "");
 			else
-				System.out.println("YES");
+				System.out.println(n + OracAndFactors.f(n) + 2*(k-1) + "");
 		}
+	}
+	
+	public static int f(int n)
+	{
+		for (int i = 3; i*i <= n; i += 2)
+			if (n%i == 0)
+				return i;
+		
+		return n;
 	}
 }

@@ -13,7 +13,7 @@ public class BalancedArray
 		for (int i = 0; i < tests.length; i++)
 		{
 			int half = tests[i]/2;
-			if ((half-1)%2 == 1)
+			if (half%2 == 0)
 			{
 				System.out.println("YES");
 				
